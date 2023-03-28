@@ -1,0 +1,7 @@
+package services;
+
+public class CustomerNotFoundException extends RuntimeException {
+    public void nullData(){
+        throw new RuntimeException("Customer does not exists in database.");
+    }
+}
