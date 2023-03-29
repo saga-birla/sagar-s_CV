@@ -1,0 +1,285 @@
+package day1;
+
+import day2.Address;
+import day2.LoanAgreement;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Set;
+@Component
+public class Customer {
+    private int  customerId;
+    private String customerName;
+    private double monthlyIncome;
+    private String profession;
+    private String designation;
+    private String companyName;
+    //Question3........
+    private List<String> phoneNumbers;
+    private  Set<String> emailAddress;
+//    @Autowired
+    private Address address;
+
+   // private List<String> loanAgreement;
+    private LocalDate dob;
+    //.....................................
+
+    public Customer()
+    {
+
+    }
+
+//    public Customer(int customerId, String customerName, double monthlyIncome, String profession, String designation, String companyName, List<String> phoneNumbers, Set<String> emailAddress, Address address, LocalDate dob, List<LoanApplication> loanApplications, List<LoanAgreement> loanAgreements, List<LoanAgreement> loanAgreement) {
+//        this.customerId = customerId;
+//        this.customerName = customerName;
+//        this.monthlyIncome = monthlyIncome;
+//        this.profession = profession;
+//        this.designation = designation;
+//        this.companyName = companyName;
+//        this.phoneNumbers = phoneNumbers;
+//        this.emailAddress = emailAddress;
+//        this.address = address;
+//        this.dob = dob;
+//        this.loanApplications = loanApplications;
+//        this.loanAgreements = loanAgreements;
+//        this.loanAgreement = loanAgreement;
+//    }
+
+    public Customer(int customerId, String customerName,LocalDate dob, double monthlyIncome, String profession, String designation,String companyName) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.dob = dob;
+        this.monthlyIncome = monthlyIncome;
+        this.profession = profession;
+        this.designation = designation;
+        this.companyName=companyName;
+        //this.dob = dob;
+    }
+
+
+    //    public Customer(int customerId, String customerName, double monthlyIncome, String profession, String designation, String companyName,List<String> phoneNumbers) {
+//        this.customerId = customerId;
+//        this.customerName = customerName;
+//        this.monthlyIncome = monthlyIncome;
+//        this.profession = profession;
+//        this.designation = designation;
+//        this.companyName = companyName;
+//        this.phoneNumbers = phoneNumbers;
+//    }
+
+
+//    public Customer(int customerId, String customerName, double monthlyIncome, String profession, String designation, String companyName) {
+//        this.customerId = customerId;
+//        this.customerName = customerName;
+//        this.monthlyIncome = monthlyIncome;
+//        this.profession = profession;
+//        this.designation = designation;
+//        this.companyName = companyName;
+//    }
+
+
+//    public Customer(int customerId, String customerName, double monthlyIncome, String profession, String designation, String companyName, List<String> phoneNumbers, Address address) {
+//        this.customerId = customerId;
+//        this.customerName = customerName;
+//        this.monthlyIncome = monthlyIncome;
+//        this.profession = profession;
+//        this.designation = designation;
+//        this.companyName = companyName;
+//        this.phoneNumbers = phoneNumbers;
+//        this.address = address;
+//    }
+//    public Customer(int customerId,String customerName,)
+
+//    public Customer(int id, String name, Double income, String profession, String designation, String companyName, LocalDate toLocalDate) {
+//        this.id=
+//    }
+
+    // Question3.................
+    public void setPhoneNumbers(List<String> phoneNumbers){
+        this.phoneNumbers=phoneNumbers;
+    }
+    public void setEmailAddress(Set<String> emailAddress){
+        this.emailAddress=emailAddress;
+    }
+  //  public void setLoanAgreement(List<String> loanAgreement){this.loanAgreement=loanAgreement;}
+    //.....................................................
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public double  getMonthlyIncome() {
+        return monthlyIncome;
+    }
+
+    public String getProfession() {
+        return profession;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public List<String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public Set<String> getEmailAddress() {
+        return emailAddress;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public List<LoanAgreement> getLoanAgreements() {
+        return loanAgreements;
+    }
+
+    public List<LoanAgreement> getLoanAgreement() {
+        return loanAgreement;
+    }
+//    @Autowired
+    private List<LoanApplication> loanApplications;
+
+    public List<LoanApplication> getLoanApplications() {
+        return loanApplications;
+    }
+
+//    @Autowired
+    //@Qualifier(value="loanAgreements, loanAgreement2, loanAgreement3")
+    private List<LoanAgreement> loanAgreements;
+
+//    @Autowired
+    private List<LoanAgreement> loanAgreement;
+
+    public void setCustomerId(int  customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public void setMonthlyIncome(double monthlyIncome) {
+        this.monthlyIncome = monthlyIncome;
+    }
+
+    public void setProfession(String profession) {
+        this.profession = profession;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    public void setAddress(Address address)
+    {
+        this.address = address;
+    }
+    //day2..Question1................................
+//    public void init()
+//    {
+//        for(int i=0;i<phoneNumbers.size();i++)
+//            if(!(phoneNumbers.get(i).contains("+91")))
+//                phoneNumbers.set(i,"+91"+phoneNumbers.get(i));
+//    }
+    //...........................................
+
+    //Question6...................
+ //   @PostConstruct
+    public void init()
+    {
+        System.out.println("this is PostConstruct init");
+    }
+    @PreDestroy
+    public void destroy()
+    {
+        System.out.println("this is predestroy");
+    }
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "customerId=" + customerId +
+//                ", customerName='" + customerName + '\'' +
+//                ", profession='" + profession + '\'' +
+//                ", dob=" + dob +
+//                '}';
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "customerId=" + customerId +
+//                ", customerName='" + customerName + '\'' +
+//                ", monthlyIncome=" + monthlyIncome +
+//                ", profession='" + profession + '\'' +
+//                ", designation='" + designation + '\'' +
+//                ", companyName='" + companyName + '\'' +
+//                ", phoneNumbers=" + phoneNumbers +
+//                ", emailAddress=" + emailAddress +
+//                ", address=" + address +
+//                ", dob=" + dob +
+//                '}';
+//    }
+
+//    @Override
+//    public String toString() {
+//        return "Customer{" +
+//                "customerId=" + customerId +
+//                ", customerName='" + customerName + '\'' +
+//                ", monthlyIncome=" + monthlyIncome +
+//                ", profession='" + profession + '\'' +
+//                ", designation='" + designation + '\'' +
+//                ", companyName='" + companyName + '\'' +
+//                '}';
+//    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", customerName='" + customerName + '\'' +
+                ", monthlyIncome=" + monthlyIncome +
+                ", profession='" + profession + '\'' +
+                ", designation='" + designation + '\'' +
+                ", companyName='" + companyName + '\'' +
+                ", address=" + address +
+                '}';
+    }
+
+
+
+    //day2..Question1......................
+//    public void destroy()
+//    {
+//        phoneNumbers.clear();
+//        emailAddress.clear();
+//    }
+    //.........................................
+}
